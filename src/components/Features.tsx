@@ -14,7 +14,7 @@ export default function Features() {
             <MapPin className="w-12 h-12 text-blue-500 mb-4" />
             <h3 className="text-2xl font-bold mb-4">איפה?</h3>
             <p className="text-lg text-gray-600">
-              {content.schedule.location}
+              פרדס חנה, מול מחנה 80
               <a 
                 href="https://waze.com/ul/hsvbbsj4vy"
                 target="_blank"

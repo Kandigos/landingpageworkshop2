@@ -1,9 +1,17 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, Phone } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 
 export default function Reviews() {
   const { content } = useContent();
+
+  const scrollToCalendar = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const calendarSection = document.getElementById('calendar-section');
+    if (calendarSection) {
+      calendarSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="section-container">
@@ -28,14 +36,26 @@ export default function Reviews() {
         <p className="text-xl mb-10 max-w-3xl mx-auto">
           מספר המקומות מוגבל! הצטרפו למסע של אדמה וצליל במרחב אבאדמה, וחוו חיבור מחודש לעצמכם דרך צלילים מדויקים ואווירה עוטפת.
         </p>
-        <a
-          href={content.payboxLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="primary-button"
+        <button
+          onClick={scrollToCalendar}
+          className="primary-button mb-16"
         >
           שריינו מקום עכשיו &gt;&gt;
-        </a>
+        </button>
+        
+        {/* Contact Information */}
+        <div className="mt-24 pt-12 border-t border-primary-light/20">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <h3 className="text-2xl font-medium mb-2">נתנאל קול</h3>
+            <a
+              href="tel:0523313435"
+              className="flex items-center gap-3 bg-primary-light text-white px-6 py-3 rounded-full hover:bg-primary transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              <Phone className="w-5 h-5" />
+              <span className="text-lg">052-331-3435</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
